@@ -1,6 +1,6 @@
 package main
 
-//#cgo LDFLAGS: -L${SRCDIR}/../target/x86_64-apple-darwin/debug -lrust_greet
+//#cgo LDFLAGS: -L${SRCDIR}/../target/aarch64-apple-darwin/debug -lrust_greet
 //#include <stdlib.h>
 // char* greet(const char* name);
 // void free_string(char* s);
