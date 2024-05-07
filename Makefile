@@ -1,7 +1,7 @@
-all: target/aarch64-apple-darwin/debug/librust_greet.a
+all: rust_build
 	go run src/greet.go
 
-target/aarch64-apple-darwin/debug/librust_greet.a: src/lib.rs Cargo.toml
+rust_build: src/lib.rs Cargo.toml
 	cargo build --target aarch64-apple-darwin
 
 clean:
