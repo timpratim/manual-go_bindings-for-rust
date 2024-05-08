@@ -10,8 +10,8 @@ import (
 	"unsafe"
 )
 
-func sendGreeting(name string) string {
-	cstring := C.CString(name)
+func sendGreeting(recipient string) string {
+	cstring := C.CString(recipient)
 	defer C.free(unsafe.Pointer(cstring))
 	greeting := C.sendGreeting(cstring)
 	defer C.free_string(greeting)
