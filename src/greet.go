@@ -10,10 +10,15 @@ import (
 	"unsafe"
 )
 
-func main() {
-	name := C.CString("Golangia")
-	defer C.free(unsafe.Pointer(name))
-	greeting := C.sendGreeting(name)
+func sendGreeting(name string) string {
+	cstring := C.CString(name)
+	defer C.free(unsafe.Pointer(cstring))
+	greeting := C.sendGreeting(cstring)
 	defer C.free_string(greeting)
-	fmt.Println(C.GoString(greeting))
+	return C.GoString(greeting)
+}
+
+func main() {
+	name := "Golangia"
+	fmt.Println(sendGreeting(name))
 }
